@@ -1,5 +1,5 @@
 PYTHON=python
-JSON_FILES=json/CysCandScr.json json/Scr.json json/Ccr.json json/K.json
+JSON_FILES=json/CysCandScr.json json/Scr.json json/Ccr.json json/K.json json/R.json
 
 .PHONY: run, all, clean
 

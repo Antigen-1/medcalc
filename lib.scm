@@ -22,7 +22,7 @@
     (lambda (name l r) 
         (let ((format-value (lambda (e)
                                 ;; e: (cons/c name (cons/c unit/literal/type null))
-                                (string-append " " (@ e 0) " ~ " (@ e 1) " "))))
+                                (string-append " " (@ e 0) "~" (@ e 1) " "))))
             (print
                 (string-append 
                     (+ name ":")

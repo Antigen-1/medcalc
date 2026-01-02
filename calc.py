@@ -16,3 +16,7 @@ with open(os.path.join(os.path.dirname(__file__), "json", "Ccr.json"), "rt") as 
 K = None
 with open(os.path.join(os.path.dirname(__file__), "json", "K.json"), "rt") as f:
     K = core.run(f.read())
+
+R = None
+with open(os.path.join(os.path.dirname(__file__), "json", "R.json"), "rt") as f:
+    R = core.run(f.read())
