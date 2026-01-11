@@ -1,11 +1,4 @@
-(print-signature "CysCandScr2eGFR" 
-                 '(("age" "int")
-                   ("gender" "\"male\"/\"female\"")
-                   ("CysC" "mg/L")
-                   ("Scr" "mg/dl"))
-                 '("eGFR" "ml/(minx1.73m^2)"))
-
-(define eGFR 
+(define CysCandScr2eGFR
     (lambda (age gender CysC Scr)
         (let ((A none)
               (B none)
@@ -29,4 +22,10 @@
               (pow 0.9961 age) 
               E))))
 
-(#%scm-procedure eGFR 4)
+(install "CysCandScr2eGFR" 
+         '((("age" "int")
+            ("gender" "\"male\"/\"female\"")
+            ("CysC" "mg/L")
+            ("Scr" "mg/dl"))
+           ("eGFR" "ml/(minx1.73m^2)"))
+          CysCandScr2eGFR)

@@ -1,18 +1,17 @@
 PYTHON=python
-JSON_FILES=json/CysCandScr.json json/Scr.json json/Ccr.json json/K.json json/R.json
 
 .PHONY: run, all, clean
 
-all: $(JSON_FILES) core.py
+all: core.py json/all.json
 
-json/%.json: lib.scm scm/%.scm
+json/all.json: scm/*.scm lib.scm pkg.scm
 	mkdir -p json
 	rkt-pythonize -s -r -o $@ $^
 
 core.py:
 	rkt-pythonize -c > $@
 
-run: $(JSON_FILES) core.py
+run: core.py json/all.json
 	$(PYTHON) -i calc.py
 
 clean:

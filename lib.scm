@@ -18,13 +18,15 @@
 (define min (lambda (n1 n2) (if (< n1 n2) n1 n2)))
 (define max (lambda (n1 n2) (if (< n1 n2) n2 n1)))
 
-(define print-signature 
-    (lambda (name l r) 
+(define cadr
+    (lambda (l)
+        (car (cdr l))))
+
+(define format-signature 
+    (lambda (l r) 
         (let ((format-value (lambda (e)
                                 ;; e: (cons/c name (cons/c unit/literal/type null))
                                 (string-append " " (@ e 0) "~" (@ e 1) " "))))
-            (print
-                (string-append 
-                    (+ name ":")
-                    (foldr (lambda (e a) (+ (format-value e) a)) "" l)
-                    (+ "->" (format-value r)))))))
+            (string-append 
+                (foldr (lambda (e a) (+ (format-value e) a)) "" l)
+                (+ "->" (format-value r))))))
